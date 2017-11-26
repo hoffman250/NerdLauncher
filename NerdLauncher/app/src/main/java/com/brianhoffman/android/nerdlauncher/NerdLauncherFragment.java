@@ -62,7 +62,7 @@ public class NerdLauncherFragment extends Fragment {
         mRecyclerView.setAdapter(new ActivityAdapter(activities));
     }
 
-    private class ActivityHolder extends RecyclerView.ViewHolder 
+    private class ActivityHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         private ResolveInfo mResolveInfo;
         private TextView mNameTextView;
@@ -86,7 +86,8 @@ public class NerdLauncherFragment extends Fragment {
 
             Intent i = new Intent(Intent.ACTION_MAIN)
                     .setClassName(activityInfo.applicationInfo.packageName,
-                            activityInfo.name);
+                            activityInfo.name)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
         }
     }
